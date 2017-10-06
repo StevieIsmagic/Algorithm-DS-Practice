@@ -37,6 +37,7 @@ const BFS = (tree, searchTerm) => {
 		if (item === searchTerm) {
 			return true; 
 		};
+		
 		if (typeof(item) === 'object' && item !== null && !Array.isArray(item)) {
 			queue.concat(Object.keys(item).map((value) => {
 				item[value];
