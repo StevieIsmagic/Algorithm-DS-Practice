@@ -13,16 +13,16 @@ const exampleTree = {
 };
 
 const BFS = (tree, searchTerm) => {
-	let queue = Object.values(tree);
+(1)	let queue = Object.values(tree);
 
-	while(queue.length > 0) {
-		let item = queue.shift();
+(2)	while(queue.length > 0) {
+	(1)	let item = queue.shift();
 
-		if (item === searchTerm) {
+	(2)	if (item === searchTerm) {
 			return true;
 		}
 
-		if (typeof(item) === 'object' && item !== null && !Array.isArray(item)) {
+	(3)	if (typeof(item) === 'object' && item !== null && !Array.isArray(item)) {
 			queue = Object.values(item);
 		};
 	}
