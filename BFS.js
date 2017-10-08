@@ -44,7 +44,7 @@ const BFS = (tree, searchTerm) => {
 			}) 
 			);
 		};
-		return false;
+	return false;
 	};
 };
 
