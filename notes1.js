@@ -4,7 +4,7 @@ function getMiddle(s)
   s.length % 2 === 0 ? 2 : 1);
 }
 
-******************
+/******************/
 
 function getMiddle(s) {
   var middle = s.length / 2;
@@ -13,7 +13,7 @@ function getMiddle(s) {
     : s.slice(middle - 1, middle + 1);
 }
 
-*****************
+/*****************/
 
 function getMiddle(s)
 {
