@@ -13,21 +13,37 @@ const exampleTree = {
 };
 
 const BFS = (tree, searchTerm) => {
-(1)	let queue = Object.values(tree);
+	// pull keys / values from tree + create QUEUE
+	const queue = Object.keys(tree).map((key) => {
+		return tree[key] // this gives us each value
+	});
 
-(2)	while(queue.length > 0) {
-	(1)	let item = queue.shift();
+	while (queue.length > 0) {
+		// shift queue + to create current term
+		// being compared to searchTerm
 
-	(2)	if (item === searchTerm) {
+		let item = queue.shift(); // shift return the first item in array
+
+		// if item matches searchTerm, return TRUE
+		if (item === searchTerm) { 
 			return true;
 		}
+		if (typeof(item) === 'object' && item !== null && !Array.isArray(item)) {
+			let itemChildren = Object.keys(item).map((item) => {
+				queue.push(itemChildren);
+			});
+		}
+		return false;
 
-	(3)	if (typeof(item) === 'object' && item !== null && !Array.isArray(item)) {
-			queue = Object.values(item);
-		};
+		// if item is itself an object/not null/ not an Array
+		// pull its key/values + push them onto end of queue
+
+		// else if no terms match searchTerm, return false
+
 	}
-	return false;
-};
+
+
+}
 
 console.log(BFS(exampleTree, 'H'));
 console.log(BFS(exampleTree, 'A'));
