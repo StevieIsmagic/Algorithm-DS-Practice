@@ -22,3 +22,11 @@ const newUser2 = new User({
 });
 
 console.log(newUser2, newUser2.verifyPassword('asdf')); // true
+
+/* if 'this' is not bound to anything, it refers to the global object */
+
+function foo() {
+  console.log(this);
+}
+
+foo() // will log the global object
