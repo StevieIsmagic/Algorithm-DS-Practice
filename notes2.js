@@ -41,7 +41,9 @@ foo.call({ message: 'hello world' }, true, null, 'hello');
 foo.apply({ message: 'hello world' }, [true, null, 'hello']);
 /* 
 Use bind when you want that function to later be called with
-a certain context; useful in events.
+a certain context; useful in events. .bind() attaches a brand new
+~this~ to a given function. In bind's case, the f(x) is not executed
+imstantly like Call() or Apply().
 */
 const boundFoo = foo.bind({ message: 'hello world' });
 
