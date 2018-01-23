@@ -31,9 +31,17 @@ function foo() {
 
 foo() // will log the global object
 
-// 3. manually set the 'this' object reference
+/* 
+3. manually set the 'this' object reference 
+Use .call() or .apply() when you want to invoke the function
+immediately,WITH MODIFICATION of the context.
+*/
 foo.call({ message: 'hello world' }, true, null, 'hello');
 foo.apply({ message: 'hello world' }, [true, null, 'hello']);
+/* 
+Use bind when you want that function to later be called with
+a certain context; useful in events.
+*/
 const boundFoo = foo.bind({ message: 'hello world' });
 
 /* 4. when 'new' keyword is being used, 'this' refers to the new object being created */
