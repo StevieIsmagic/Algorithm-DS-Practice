@@ -34,7 +34,8 @@ foo() // will log the global object
 /* 
 3. manually set the 'this' object reference 
 Use .call() or .apply() when you want to invoke the function
-immediately,WITH MODIFICATION of the context.
+immediately,WITH MODIFICATION of the context. These two ARE THE SAME
+except that when using .apply(), arguments are passed as an array list. 
 */
 foo.call({ message: 'hello world' }, true, null, 'hello');
 foo.apply({ message: 'hello world' }, [true, null, 'hello']);
