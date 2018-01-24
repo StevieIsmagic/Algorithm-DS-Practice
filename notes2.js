@@ -72,6 +72,8 @@ class User {
 // will need to invoke using capital U- User
 User.sayHi();
 
+// keep practicing steven you can do this :)
+
 
 
 
