@@ -42,3 +42,5 @@ Break the problem into subproblems that are similar to the original problem. Thr
 # Recursive Solution
 
 Base Case: ?
+
+Partition step - take a random number from the array. This is your pivot. Every number less than pivot goes to left, every number greater than pivot goes to right.
