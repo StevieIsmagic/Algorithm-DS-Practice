@@ -31,11 +31,13 @@ Break the problem into subproblems that are similar to the original problem. Thr
 
 # Big O
 
-* Best Case Time Complexity- O(NlogN)
-* Average Case Time Complexity- O(NlogN)
-* Worse Case Time Complexity- O(N2)
+* Best Case Time Complexity- O(N log N)
+* Average Case Time Complexity- O(N log N)
+* Worse Case Time Complexity- O(N^2)
 
-  QWhat would cause a worst case scenario ?
+#### What would cause a worst case O(N^2) scenario... ?
+
+* An inversely sorted array [5, 4, 3, 2, 1]
 
 # Recursive Solution
 
