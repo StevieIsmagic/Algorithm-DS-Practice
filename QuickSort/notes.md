@@ -1,4 +1,4 @@
-Expected function: `quickSort`
+<!-- Expected function: `quickSort`
 
 Implement the quick sort sorting algorithm. Assume the input is an array of integers.
 
@@ -14,7 +14,7 @@ module.exports = {
 }
 ```
 
----
+--- -->
 
 # Quick Sort Fun Facts
 
@@ -39,8 +39,8 @@ Break the problem into subproblems that are similar to the original problem. Thr
 
 * An inversely sorted array [5, 4, 3, 2, 1]
 
-# Recursive Solution
+<!-- # Recursive Solution
 
 Base Case: ?
 
-Partition step - take a random number from the array. This is your pivot. Every number less than pivot goes to left, every number greater than pivot goes to right.
+Partition step - take a random number from the array. This is your pivot. Every number less than pivot goes to left, every number greater than pivot goes to right. -->
