@@ -1,3 +1,4 @@
+// ********************** LESS Steps ******************************
 const binarySearch = (arr, key) => {
   const midIndex = Math.floor(arr.length / 2);
   const midElem = arr[midIndex];
@@ -32,3 +33,21 @@ arr.splice(0, midIndex 4)
 1 2 3 4 5 6 7 
 0-----^
 */
+// ********************** MORE Steps ******************************
+
+const binarySearch1 = (arr, key) => {
+  let lo = 0;
+  let hi = arr.length - 1;
+
+  while (lo <= hi) {
+    let mid = Math.floor((lo + hi) / 2);
+    let guess = arr[mid];
+
+    if (guess <= key && arr.length > 1) {
+      lo = mid + 1;
+    } else if (guess >= key && arr.length > 1) {
+      hi = mid - 1;
+    }
+  }
+  return false;
+};
