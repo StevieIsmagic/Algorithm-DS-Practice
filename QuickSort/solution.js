@@ -1,3 +1,6 @@
+// O(n log n)
+// Divide and conquer - recursive
+
 function quickSort(nums) {
   const arr = nums.slice();
   if (nums.length < 2) return nums;
