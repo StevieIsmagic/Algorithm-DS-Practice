@@ -49,7 +49,7 @@ person2.printPerson();
 // AKA each will have its own printPerson method.
 // Prototype pattern helps reduce this overhead
 
-/* Prototype Pattern */
+/* Regular Prototype Pattern */
 
 var peopleProto = function() {};
 // adding default values to the prototype of our peopleProto function
@@ -66,5 +66,26 @@ var person1 = new peopleProto();
 person1.name = 'Stevie';
 person1.age = 27;
 person1.state = 'CA';
+
+person1.printPerson();
+
+/* Dynamic Prototype Pattern */
+
+var peopleDynamicProto = function(name, age, state) {
+  this.age = age;
+  this.name = name;
+  this.state = state;
+
+  // the printPerson method will only be created and added to the prototype
+  // when the first peopleDynamicProto object is created
+  // all other objects will not create this method
+  if (typeof this.printPerson !== 'function') {
+    peopleDynamicProto.prototype.printPerson = function() {
+      console.log(this.name + ', ' + this.age + ', ' + this.state);
+    };
+  }
+};
+
+var person1 = new peopleDynamicProto('Stevie', 27, 'CA');
 
 person1.printPerson();
