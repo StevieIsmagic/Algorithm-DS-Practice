@@ -50,3 +50,21 @@ person2.printPerson();
 // Prototype pattern helps reduce this overhead
 
 /* Prototype Pattern */
+
+var peopleProto = function() {};
+// adding default values to the prototype of our peopleProto function
+peopleProto, (prototype.age = 0);
+peopleProto.prototype.name = 'no name';
+peopleProto.prototype.state = 'no state';
+
+peopleProto.prototype.printPerson = function() {
+  console.log(this.name + ', ' + this.age + ', ' + this.state);
+};
+
+var person1 = new peopleProto();
+// we will override default property values after constructing person1
+person1.name = 'Stevie';
+person1.age = 27;
+person1.state = 'CA';
+
+person1.printPerson();
