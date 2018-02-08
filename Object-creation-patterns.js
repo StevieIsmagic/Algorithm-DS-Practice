@@ -89,3 +89,34 @@ var peopleDynamicProto = function(name, age, state) {
 var person1 = new peopleDynamicProto('Stevie', 27, 'CA');
 
 person1.printPerson();
+
+/* ********** OBJECT CREATION USING ES6 CLASSES *********** */ 
+
+// BEFORE
+function User(options) {
+  this.email = options.email;
+  this.password = options.password;
+}
+
+User.prototype.sayHi = function() {
+  console.log('hi!');
+};
+
+/* ES6 CLASSES */
+
+// AFTER
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  // User.prototype.sayHi
+  sayHi() {
+    console.log('hi');
+  }
+}
+
+const user1 = new User({
+  email: 'Stevie@gmail.com',
+  password: 'asdffhg',
+});
