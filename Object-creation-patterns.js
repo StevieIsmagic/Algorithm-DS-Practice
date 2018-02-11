@@ -120,3 +120,11 @@ const user1 = new User({
   email: 'Stevie@gmail.com',
   password: 'asdffhg',
 });
+
+/* Practice bulding Classes */ 
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+}
