@@ -90,7 +90,7 @@ var person1 = new peopleDynamicProto('Stevie', 27, 'CA');
 
 person1.printPerson();
 
-/* ********** OBJECT CREATION USING ES6 CLASSES *********** */ 
+/* ********** OBJECT CREATION USING ES6 CLASSES *********** */
 
 // BEFORE
 function User(options) {
@@ -118,13 +118,32 @@ class User {
 
 const user1 = new User({
   email: 'Stevie@gmail.com',
-  password: 'asdffhg',
+  password: 'asdffhg'
 });
 
-/* Practice bulding Classes */ 
+/* v v v Practice bulding Classes v v v */
+
 class User {
   constructor(options) {
     this.email = options.email;
     this.password = options.password;
   }
+
+  sayHi() {
+    console.log('hi');
+  }
 }
+
+const Stevie = new User({
+  email: 'Stevie@gmail.com',
+  password: 'sdfsdf'
+});
+
+function User(options) {
+  this.email = options.email;
+  this.password = options.password;
+}
+
+User.prototype.sayHi = function() {
+  console.log('hi!');
+};
