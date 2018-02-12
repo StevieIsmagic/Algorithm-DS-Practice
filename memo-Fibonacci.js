@@ -22,4 +22,12 @@ Fibber.prototypefib = function(n) {
     console.log(`grabbing memo [${n}]`);
     return this.memo[n];
   }
+
+  console.log(`computing fib(${n})`);
+  let result = this.fib(n - 1) + this.fib(n - 2);
+
+  //memoize
+  this.memo[n] = result;
+
+  return result;
 };
