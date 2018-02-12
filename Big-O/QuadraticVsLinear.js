@@ -1,6 +1,12 @@
-// Quadratic O(n^2)
+// Quadratic Time O(N^2)
 
-// for N elements in the array, how many steps would our Alg take in a worst case scenario?
+/* for N elements in the array, how many steps would our Alg take in a worst case scenario?
+
+we conclude that for N elements in the array, our function would perform N^2 comparisions,
+since we perform an outer loop that must iterate N times to get through the entire array,
+and for each iteration, we must iterate another N times with our inner loop. That's 
+N steps * N steps, which is otherwise known as N^2 steps = O(N^2).
+*/
 function hasDuplicateValue(array) {
   let steps = 0; // use this to compare # of steps
   for (let i = 0; i < array.length; i++) {
@@ -15,17 +21,20 @@ function hasDuplicateValue(array) {
   return false;
 }
 
-// Linear Solution O(n)
+// Linear Time Solution O(N) - makes N comparisons for N data elements
 
 function hasDuplicateSteps(array) {
+  let steps = 0;
   let existingNumbers = [];
   for (let i = 0; i < array.length; i++) {
+    steps++;
     if (existingNumbers[array[i]] === undefined) {
       existingNumbers[array[i]] = 1;
     } else {
       return true;
     }
   }
+  console.log(steps);
   return false;
 }
 
