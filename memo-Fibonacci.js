@@ -102,7 +102,7 @@ function product1ToN(n) {
   return result;
 }
 /* 
-Going Bottom-Up is a common strategy for dynamic programming problems,
+Going Bottom-Up is a common strategy for Dynamic Programming Problems,
 which are problems where the solution is composed of solutions of the same problem
 with smaller inputs (as with multiplying the numbers 1..n, above) The other common 
 strategy for dynamic programming problems is Memoization.
