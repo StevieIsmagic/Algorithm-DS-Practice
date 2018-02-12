@@ -31,3 +31,19 @@ Fibber.prototypefib = function(n) {
 
   return result;
 };
+
+/* 
+Memoization is a common strategy for dynamic programming problems, which are problems
+where the solution is composed of solutions to the same problem with similar inputs
+(as with the Fibonacci problem above.) The otehr strategy for dynamic programming problems
+is giong *bottom-up*, which is usually cleaner and often more efficient.
+*/
+
+/* BOTTOM-UP ALGORITHMS 
+
+Going bottom-up is a way to avoid recursion, saving the memory cost that recursion
+incurs when it builds up the call stack.
+
+Put simply, a bottom-up algorithm 'starts from the beginning', while a recursive algorithm
+often 'starts from the end and works backwards'
+*/
