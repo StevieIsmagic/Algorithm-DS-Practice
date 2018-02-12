@@ -16,3 +16,26 @@ function hasDuplicateValue(array) {
 }
 
 // Linear Solution O(n)
+
+function hasDuplicateSteps(array) {
+  let existingNumbers = [];
+  for (let i = 0; i < array.length; i++) {
+    if (existingNumbers[array[i]] === undefined) {
+      existingNumbers[array[i]] = 1;
+    } else {
+      return true;
+    }
+  }
+  return false;
+}
+
+/* 
+this implementation uses an array called existingNumbers in an interesting way:
+Every time the code encounters a new number, it stores the value 1 inside the index of 
+the existingNumbers corresponding to that number. If it checks an index, and it finds
+the number 1, it means we a;ready encountered that number before.
+
+Example: if given the array [3,5,7], by the end of the loop, existingNumbers
+array will look like this > [undef, undef, 1, undef, 1, undef, 1]
+
+*/
