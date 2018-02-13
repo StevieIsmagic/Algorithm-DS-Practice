@@ -46,5 +46,4 @@ the number 1, it means we a;ready encountered that number before.
 
 Example: if given the array [3,5,7], by the end of the loop, existingNumbers
 array will look like this > [undef, undef, 1, undef, 1, undef, 1]
-
 */
