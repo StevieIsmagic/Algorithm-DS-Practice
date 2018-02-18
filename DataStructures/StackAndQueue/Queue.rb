@@ -7,7 +7,11 @@ QUEUE CONSTRAINTS:
 - Data can only be Removed from the FRONT of queue. Opposite behavior of a stack.
 
 Queues are common in many application, ranging from printing jobs 
-to background workers in web applications.
+to background workers in web applications. They are the perfect tool for handling
+asynchronous requests - they ensure that the requests are processed in the order in
+which they were received. They are also commonly used to model real-world scenarios 
+where events need to occur in a certain order, such as airplanes waiting for takeoff
+and patients waiting at the doctor.
 
 Consider the following program that accepts printing jobs 
 from various computers across a network:
