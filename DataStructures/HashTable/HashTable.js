@@ -1,5 +1,14 @@
-/*
-in JS, an object is a hash table. 
+/* HASH TABLES - O(1) average lookup time
+
+Hash tables perform a consistent balancing act. They must strike a balance
+between avoiding a collisions while not consuming lots of memory.
+
+To accomplish this, computer scientists have developed the following rule of thumb:
+For every seven (7) data elements, stored in a hash table, the table should have ten (10) cells.
+
+This ratio of data 
+In JS, an object IS a hash table. 
+
 
 Consider the following examples:
 */
