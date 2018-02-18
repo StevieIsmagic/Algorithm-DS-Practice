@@ -93,3 +93,29 @@ function addVote(candidate) {
 function countVotes(votes) {
   return votes;
 }
+
+/* EVEN OCCURENCES
+Find the first item that occurs an even number of times in an array.
+Remember to handle multiple even-occurrence items and return the first one.
+Return null if there are no even-occurrence items.
+*/
+function evenOccurence(array) {
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i]]) {
+      obj[arr[i]]++;
+    } else {
+      obj[arr[i]] = 1;
+    }
+  }
+  for (let j = 0; j < arr.length; j++) {
+    if (obj[arr[j]] % 2 === 0) {
+      return arr[j];
+    }
+  }
+  return null;
+}
+
+/* BALANCED BRACKETS
+
+*/
