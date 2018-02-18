@@ -54,3 +54,42 @@ function hasDuplicateValue(array) {
   }
   return false;
 }
+
+// ELECTRIC VOTING MACHINE - TALLY CANDIDATES
+
+// 1. O(1) insertion - but we end up with a very long array
+const votes = [];
+
+function addVote(candidate) {
+  votes.push(candidate);
+}
+
+// And what about the final vote tally? Since we have to count each vote,
+// the countVotes() function takes O(N) - linear
+
+function countVotes(votes) {
+  const tally = {};
+  for (let i = 0; i < votes.length; i++) {
+    if (tally[votes[i]]) {
+      tally[votes[i]++];
+    } else {
+      tally[votes[i]] = 1;
+    }
+  }
+  return tally;
+}
+
+//Consider using a hash table to store the data to begin with. With this technique
+//not only are insertions O(1), but out tally is O(1) as well since tally is already kept;
+const votes = {};
+
+function addVote(candidate) {
+  if (votes[candidate]) {
+    votes[candidate]++;
+  } else {
+    votes[candidate] = 1;
+  }
+}
+function countVotes(votes) {
+  return votes;
+}
