@@ -64,11 +64,54 @@ without the callback function as a parameter or in place of a function
 a non-function is passed, our code will result in a runtime error.
 */
 
-/* PROBLEM WHEN USING METHODS WITH THE `this` OBJECT AS CALLBACKS
+/* `THIS` - (1) PROBLEM WHEN USING METHODS WITH THE `this` OBJECT AS CALLBACKS
+
 When the callback function is a method that uses the `this` object, we have
 to modify how we execute the callback function to preserve the `this` object
 context. Or else the `this` object will EITHER (1) point to the global window object
 (in the browser), if cb was passed to a global function (2) Or it will point to
 the object of the containing method.
 Let's explore this in code:
+*/
+
+// define an object with some properties and a method
+// we will later pass the method as a cb f(x) to another f(x)
+var clientData = {
+  id: '123654',
+  fullName: 'Not Set',
+  //setUserName is a method on the clientData object
+  setUserName: function(firstName, lastName) {
+    // `this` refers to the fullName property in this object
+    this.fullName = firstName + '' + lastName;
+  }
+};
+
+function getUserInput(firstName, lastName, callback) {
+  // do other stuff to validate firstName/lastName here
+
+  // now save the names
+  callback(firstName, lastName);
+}
+
+/* ^^^^ In the following code example, when clientData.setUserName is executed,
+this.fullName will not set the fullName property on the clientData object.
+Instead, it will set fullName on the WINDOW object, since getUserInput is 
+a GLOBAL f(x). This happens because the `this` object in the global f(x)
+points to the WINDOW OBJECT.
+*/
+
+getUserInput('Barack', 'Obama', clientData.setUserName);
+console.log(clientData.fullName); // Not Set
+
+//The fullName property was initialized on the window object
+console.log(window.fullName); // Barack Obama
+
+/* (2) USE THE `CALL` OR `APPLY` FUNCTION TO PRESERVE `this`
+
+We can fix the preceding problem by using the `CALL` or `APPLY` function.
+Know that every f(x) in Javascript has two methods: CALL / APPLY. These 
+methods are used to set the `this` object inside the function and to pass
+arguments to the functions.
+
+
 */
