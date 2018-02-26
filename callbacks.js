@@ -113,5 +113,36 @@ Know that every f(x) in Javascript has two methods: CALL / APPLY. These
 methods are used to set the `this` object inside the function and to pass
 arguments to the functions.
 
+`CALL` takes the value to be used as the `this` object inside the function as
+the first parameter, and the remaining arguments to be passed to the function
+are passed individually (separated by commas, of course). The `APPLY` function's
+first parameter is also the value to be used as the `this` object inside the
+function, while the last parameter is an array of values (or the arguments object)
+to pass to the function.
 
+This sounds complex, but let's see how easy it is to use `APPLY` or `CALL`.
+To fix the problem in the previous example, we will use the `APPLY` f(x) : 
 */
+
+//Note that we have added an extra parameter for the callback object
+//called 'callbackObj'
+function getUserInput(firstName, lastName, callback, callbackObj) {
+  // Do other stuff to validate name here
+
+  //The use of `Apply` below will set the `this` object to be callbackObj
+  //                `this`         `this` parameters
+  callback.apply(callbackObj, [firstName, lastName]);
+}
+
+/* with the `APPLY` f(x) setting the `this` object correctly, we can now
+correctly execute the callback and have it set the fullName property
+correctly on the clientData object:
+*/
+
+//we pass the clientData.setUserName method and the clientData object as
+//parameters. The clientData object will be used by the `APPLY` f(x) to
+// set the `this` object.
+getUserInput('Barack', 'Obama', clientData.setUserName, clientData);
+
+//the fullName property on the clientData was correctly set
+console.log(clientData.fullName); // Barack Obama
