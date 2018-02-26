@@ -146,3 +146,67 @@ getUserInput('Barack', 'Obama', clientData.setUserName, clientData);
 
 //the fullName property on the clientData was correctly set
 console.log(clientData.fullName); // Barack Obama
+
+// We would have also used the `CALL` f(x), but in this case we used `APPLY`
+
+/* MULTIPLE CALLBACK FUNCTIONS ALLOWED
+We can pass more than one cb f(x) into the parameter of a f(x)
+just like we can pass more than one variable. Here is a classic example with
+jQuery's AJAX f(x)
+*/
+
+function successCallback() {
+  // do stuff before send
+}
+function successCallback() {
+  // do stuff if success message recieved
+}
+function completeCallback() {
+  // do stuff upon completion
+}
+function errorCallback() {
+  // do stuff if error recieved
+}
+
+$ajax({
+  url: 'http://fiddle.jshell.net/favicon.png',
+  success: successCallback,
+  complete: completeCallback,
+  error: errorCallback
+});
+
+/* CALLBACK HELLP PROBLEM AND SOLUTION
+In asynchronous code execution, which is simply execution of code in any order, 
+sometimes it is common to have numerous levels of callback functions to the 
+extent that you have code that looks like the following. The messy code below 
+is called callback hell because of the difficulty of following the code due to
+the many callbacks. I took this example from the node-mongodb-native, a MongoDB 
+driver for Node.js. The example code below is just for demonstration:
+*/
+
+var p_client = new Db('integration_tests_20', new Server("127.0.0.1", 27017, {}), {'pk':CustomPKFactory});
+p_client.open(function(err, p_client) {
+    p_client.dropDatabase(function(err, done) {
+        p_client.createCollection('test_custom_key', function(err, collection) {
+            collection.insert({'a':1}, function(err, docs) {
+                collection.find({'_id':new ObjectID("aaaaaaaaaaaa")}, function(err, cursor) {
+                    cursor.toArray(function(err, items) {
+                        test.assertEquals(1, items.length);
+​
+                        // Let's close the db​
+                        p_client.close();
+                    });
+                });
+            });
+        });
+    });
+});
+
+/* HERE ARE (2) SOLUTIONS TO THIS PROBLEM
+(1) Name your functions and declare them and pass just the function as a cb(),
+instead of defining an anonymous function in the parameter of the main f(x).
+(2) Modularity: Separate your code into modules, so you can export a section
+of code that does a particular job. Then you can import that module into 
+your larger application.
+*/ 
+
