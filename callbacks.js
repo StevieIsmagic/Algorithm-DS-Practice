@@ -66,6 +66,8 @@ a non-function is passed, our code will result in a runtime error.
 
 /* `THIS` - (1) PROBLEM WHEN USING METHODS WITH THE `this` OBJECT AS CALLBACKS
 
+https://youtu.be/zE9iro4r918 
+
 When the callback function is a method that uses the `this` object, we have
 to modify how we execute the callback function to preserve the `this` object
 context. Or else the `this` object will EITHER (1) point to the global window object
