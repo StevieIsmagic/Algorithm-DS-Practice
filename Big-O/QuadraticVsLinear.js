@@ -47,3 +47,26 @@ the number 1, it means we a;ready encountered that number before.
 Example: if given the array [3,5,7], by the end of the loop, existingNumbers
 array will look like this > [undef, undef, 1, undef, 1, undef, 1]
 */
+
+/* CONSIDERING SCENARIOS BEYOND THE WORST CASE
+With the addition of the BREAK (line 65), we can cut the inner loop short, and save
+steps (and therefore time). Without it, we would be making N^2 comparisons
+in all instances, instead of breaking out of the inner loop early upon having
+detected that our intersection condition has been met. There is no reason to continue 
+once we found that the second array contains the same element as the value we're 
+pointing at. 
+*/
+
+function intersection(arr1, arr2) {
+  let results = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; i < arr2.length; j++) {
+      if (arr1[i] === arr[j]) {
+        results.push(i);
+        break;
+      }
+    }
+  }
+  return results;
+}
